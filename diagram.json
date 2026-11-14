@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "author": "Lab 3 - De 2",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -105,
+      "left": -125,
+      "attrs": {
+        "temperature": "25",
+        "humidity": "50"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullup",
+      "top": -10,
+      "left": -118,
+      "rotate": 0,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "pump",
+      "top": 5,
+      "left": 185,
+      "attrs": {
+        "color": "red",
+        "label": "Bơm"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rpump",
+      "top": 36,
+      "left": 131,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "fan",
+      "top": 70,
+      "left": 185,
+      "attrs": {
+        "color": "green",
+        "label": "Quạt"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rfan",
+      "top": 101,
+      "left": 131,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "mist",
+      "top": 135,
+      "left": 185,
+      "attrs": {
+        "color": "blue",
+        "label": "Phun sương"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rmist",
+      "top": 166,
+      "left": 131,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:3V3",
+      "dht:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "dht:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D27",
+      "dht:SDA",
+      "green",
+      []
+    ],
+    [
+      "pullup:1",
+      "dht:VCC",
+      "red",
+      []
+    ],
+    [
+      "pullup:2",
+      "dht:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:D26",
+      "rpump:1",
+      "orange",
+      []
+    ],
+    [
+      "rpump:2",
+      "pump:A",
+      "red",
+      []
+    ],
+    [
+      "pump:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D25",
+      "rfan:1",
+      "limegreen",
+      []
+    ],
+    [
+      "rfan:2",
+      "fan:A",
+      "green",
+      []
+    ],
+    [
+      "fan:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D33",
+      "rmist:1",
+      "blue",
+      []
+    ],
+    [
+      "rmist:2",
+      "mist:A",
+      "blue",
+      []
+    ],
+    [
+      "mist:C",
+      "esp:GND.2",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

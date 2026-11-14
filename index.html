@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Giám sát vườn trồng</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/mqtt@5.10.4/dist/mqtt.min.js"></script>
+<script defer src="dashboard.js"></script>
+</head>
+<body>
+<main>
+<header>
+<div><p class="eyebrow">LAB 3 / ĐỀ 2</p><h1>Giám sát vườn trồng</h1><p>Cà phê và hồ tiêu · ESP32 / DHT22</p></div>
+<div id="connection" class="badge" role="status">Đang kết nối MQTT…</div>
+</header>
+<section class="grid" aria-label="Dữ liệu môi trường">
+<article class="card"><h2>Nhiệt độ</h2><p class="metric"><span class="measurement" id="temperature">—</span> <small>°C</small></p><canvas id="tempChart" aria-label="Biểu đồ nhiệt độ"></canvas></article>
+<article class="card"><h2>Độ ẩm không khí</h2><p class="metric"><span class="measurement" id="humidity">—</span> <small>%RH</small></p><canvas id="humChart" aria-label="Biểu đồ độ ẩm"></canvas></article>
+</section>
+<p class="subline" id="sampleStatus">Đang chờ mẫu từ ESP32.</p>
+<section class="card controls">
+<h2>Điều khiển thiết bị</h2>
+<div class="devices">
+<div><h3>Máy bơm</h3><p>Manual</p><button id="pump" disabled>Bật bơm</button></div>
+<div><h3>Quạt</h3><p>Manual</p><button id="fan" disabled>Bật quạt</button></div>
+<div><h3>Phun sương</h3><p>Tự động · Mục tiêu 40–60% RH</p><strong id="mist">—</strong></div>
+</div>
+<p class="subline" id="commandStatus" role="status">Chờ ESP32 gửi trạng thái thiết bị.</p>
+</section>
+<footer>MQTT · <code id="namespace"></code></footer>
+</main>
+</body>
+</html>
